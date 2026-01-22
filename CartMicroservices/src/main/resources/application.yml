@@ -1,0 +1,25 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: cart-service
+
+  profiles:
+    active: dev
+
+  config:
+    import: "configserver:http://localhost:8888"
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # trace 100% requests
+
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId:-},%X{spanId:-}] %-5level %logger{36} - %msg%n"
