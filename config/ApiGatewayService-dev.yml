@@ -26,6 +26,9 @@ server:
   port: 8088
 
 management:
+  endpoint:
+    gateway:
+      enabled: true        # 🔥 THIS WAS MISSING
   endpoints:
     web:
       exposure:
