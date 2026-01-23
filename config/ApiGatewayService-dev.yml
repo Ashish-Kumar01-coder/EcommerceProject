@@ -11,7 +11,7 @@ spring:
 
       routes:
         - id: users-route
-          uri: lb://users
+          uri: lb:/users
           predicates:
             - Path=/api/users/**
           filters:
